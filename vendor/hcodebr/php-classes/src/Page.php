@@ -4,7 +4,6 @@ namespace Hcode;
 
 use Rain\Tpl;
 
-
 class Page{ // criação para pagina page
 
 
@@ -14,12 +13,12 @@ class Page{ // criação para pagina page
 			"data"=>[]
 		];
 
-		public function __construct($opts=array()){    // metódo mágico construtor, vai ser chamado automático
+		public function __construct($opts=array(), $tpl_dir = "/views/"){    // metódo mágico construtor, vai ser chamado automático
 
 				$this->options = array_merge($this->defaults, $opts); //comando array para unir arrays
 
 				$config = array(
-					"tpl_dir"       =>$_SERVER["DOCUMENT_ROOT"]."/views/", //indicando caminho para pasta tpl_dir
+					"tpl_dir"       =>$_SERVER["DOCUMENT_ROOT"].$tpl_dir, //indicando caminho para pasta tpl_dir
 					"cache_dir"     =>$_SERVER["DOCUMENT_ROOT"]."/views-cache/",//indicando caminho para pasta cache_dir
 					"debug"         => false // não precisa, mas vamos deixar como false
 				   );
