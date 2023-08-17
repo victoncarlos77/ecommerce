@@ -10,6 +10,8 @@ class Page{ // criação para pagina page
 		private $tpl;
 		private $options = [];
 		private $defaults = [
+			"header"=>true,
+			"footer"=>true,
 			"data"=>[]
 		];
 
@@ -29,7 +31,7 @@ class Page{ // criação para pagina page
 
 		$this->setData($this->options["data"]);				
 		
-		$this->tpl->draw("header");
+		if ($this->options["header"]=== true ) $this->tpl->draw("header");
 		}
 
 
@@ -51,7 +53,7 @@ class Page{ // criação para pagina page
 
 	public function __destruct(){ //ultimo metódo a ser executado
 
-		$this->tpl->draw("footer");
+		if ($this->options["footer"] === true )$this->tpl->draw("footer");
 
 	}
 
